@@ -1,8 +1,6 @@
-use crate::utils::Pausable;
-use crate::{UseIntervalFnOptions, sendwrap_fn, use_interval_fn_with_options};
+use crate::{UseIntervalFnOptions, sendwrap_fn, use_interval_fn_with_options, utils::Pausable};
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 use std::rc::Rc;
 
 /// Reactive counter increases on every interval.

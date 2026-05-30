@@ -1,10 +1,11 @@
-use crate::sendwrap_fn;
-use crate::utils::Pausable;
+use crate::{sendwrap_fn, utils::Pausable};
 use cfg_if::cfg_if;
 use default_struct_builder::DefaultBuilder;
 use leptos::prelude::*;
-use std::cell::{Cell, RefCell};
-use std::rc::Rc;
+use std::{
+    cell::{Cell, RefCell},
+    rc::Rc,
+};
 
 /// Call function on every requestAnimationFrame.
 /// With controls of pausing and resuming.

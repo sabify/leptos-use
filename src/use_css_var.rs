@@ -1,14 +1,12 @@
 #![cfg_attr(feature = "ssr", allow(unused_variables, unused_imports))]
 
-use crate::core::IntoElementMaybeSignal;
 use crate::{
-    UseMutationObserverOptions, WatchOptions, use_mutation_observer_with_options,
-    watch_with_options,
+    UseMutationObserverOptions, WatchOptions, core::IntoElementMaybeSignal,
+    use_mutation_observer_with_options, watch_with_options,
 };
 use default_struct_builder::DefaultBuilder;
 use leptos::prelude::*;
-use std::marker::PhantomData;
-use std::time::Duration;
+use std::{marker::PhantomData, time::Duration};
 use wasm_bindgen::JsCast;
 
 /// Manipulate CSS variables.

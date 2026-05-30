@@ -1,11 +1,8 @@
-use crate::ReconnectLimit;
-use crate::core::ConnectionReadyState;
+use crate::{ReconnectLimit, core::ConnectionReadyState};
 use codee::Decoder;
 use default_struct_builder::DefaultBuilder;
 use leptos::prelude::*;
-use std::fmt::Debug;
-use std::marker::PhantomData;
-use std::sync::Arc;
+use std::{fmt::Debug, marker::PhantomData, sync::Arc};
 use thiserror::Error;
 use wasm_bindgen::JsCast;
 
@@ -216,8 +213,10 @@ where
     #[cfg(not(feature = "ssr"))]
     {
         use crate::{sendwrap_fn, use_event_listener};
-        use std::sync::atomic::{AtomicBool, AtomicU32};
-        use std::time::Duration;
+        use std::{
+            sync::atomic::{AtomicBool, AtomicU32},
+            time::Duration,
+        };
         use wasm_bindgen::prelude::*;
 
         let (event_source, set_event_source) = signal_local(None::<web_sys::EventSource>);

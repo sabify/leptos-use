@@ -3,8 +3,7 @@ use cfg_if::cfg_if;
 use codee::{CodecError, Decoder, Encoder, HybridCoderError, HybridDecoder, HybridEncoder};
 use default_struct_builder::DefaultBuilder;
 use leptos::prelude::*;
-use std::marker::PhantomData;
-use std::sync::Arc;
+use std::{marker::PhantomData, sync::Arc};
 use thiserror::Error;
 use web_sys::{CloseEvent, Event};
 
@@ -348,8 +347,7 @@ where
         use crate::{sendwrap_fn, use_interval_fn, utils::Pausable};
         use js_sys::Array;
         use leptos::leptos_dom::helpers::TimeoutHandle;
-        use std::sync::atomic::AtomicBool;
-        use std::time::Duration;
+        use std::{sync::atomic::AtomicBool, time::Duration};
         use wasm_bindgen::prelude::*;
         use web_sys::{BinaryType, MessageEvent, WebSocket};
 
@@ -453,7 +451,7 @@ where
                     && reconnect_timer_ref.get_value().is_none()
                 {
                     reconnect_timer_ref.set_value(
-                        set_timeout_with_handle(
+                        set_timeout(
                             move || {
                                 if unmounted.load(std::sync::atomic::Ordering::Relaxed) {
                                     return;

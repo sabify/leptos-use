@@ -1,9 +1,10 @@
-use crate::filter_builder_methods;
-use crate::utils::{DebounceOptions, FilterOptions, ThrottleOptions, create_filter_wrapper};
+use crate::{
+    filter_builder_methods,
+    utils::{DebounceOptions, FilterOptions, ThrottleOptions, create_filter_wrapper},
+};
 use default_struct_builder::DefaultBuilder;
 use leptos::prelude::*;
-use std::cell::RefCell;
-use std::rc::Rc;
+use std::{cell::RefCell, rc::Rc};
 
 /// A version of `leptos::watch` but with additional options.
 ///

@@ -1,13 +1,10 @@
-use crate::core::now;
-use crate::utils::Pausable;
 use crate::{
-    UseIntervalFnOptions, UseRafFnOptions, use_interval_fn_with_options, use_raf_fn_with_options,
+    UseIntervalFnOptions, UseRafFnOptions, core::now, use_interval_fn_with_options,
+    use_raf_fn_with_options, utils::Pausable,
 };
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
-use std::rc::Rc;
-use std::sync::Arc;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
+use std::{rc::Rc, sync::Arc};
 
 /// Reactive current timestamp.
 ///

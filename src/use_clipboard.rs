@@ -1,8 +1,10 @@
 use crate::{UseTimeoutFnReturn, js, js_fut, sendwrap_fn, use_event_listener, use_supported};
 use default_struct_builder::DefaultBuilder;
-use leptos::ev::{copy, cut};
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{
+    ev::{copy, cut},
+    prelude::*,
+    reactive::wrappers::read::Signal,
+};
 
 /// Reactive [Clipboard API](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard_API).
 ///

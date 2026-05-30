@@ -1,11 +1,7 @@
 use crate::{use_media_query, use_window};
-use leptos::logging::error;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{logging::error, prelude::*, reactive::wrappers::read::Signal};
 use paste::paste;
-use std::collections::HashMap;
-use std::fmt::Debug;
-use std::hash::Hash;
+use std::{collections::HashMap, fmt::Debug, hash::Hash};
 
 /// Reactive viewport breakpoints.
 ///

@@ -1,12 +1,10 @@
-use crate::core::OptionLocalRwSignal;
 use crate::{
-    core::{MaybeRwSignal, OptionLocalSignal},
+    core::{MaybeRwSignal, OptionLocalRwSignal, OptionLocalSignal},
     sendwrap_fn,
 };
 use cfg_if::cfg_if;
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 use wasm_bindgen::{JsCast, JsValue};
 
 /// Reactive [`mediaDevices.getDisplayMedia`](https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/getDisplayMedia) streaming.
@@ -139,8 +137,7 @@ pub fn use_display_media_with_options(
 
 #[cfg(not(feature = "ssr"))]
 async fn create_media(audio: bool) -> Result<web_sys::MediaStream, JsValue> {
-    use crate::js_fut;
-    use crate::use_window::use_window;
+    use crate::{js_fut, use_window::use_window};
 
     let media = use_window()
         .navigator()

@@ -65,8 +65,10 @@ where
     {
         use crate::sendwrap_fn;
         use leptos::leptos_dom::helpers::TimeoutHandle;
-        use std::sync::{Arc, Mutex};
-        use std::time::Duration;
+        use std::{
+            sync::{Arc, Mutex},
+            time::Duration,
+        };
 
         let timer = Arc::new(Mutex::new(None::<TimeoutHandle>));
 
@@ -99,7 +101,7 @@ where
                 clear();
                 set_pending.set(true);
 
-                let handle = set_timeout_with_handle(
+                let handle = set_timeout(
                     {
                         let timer = Arc::clone(&timer);
                         let callback = callback.clone();

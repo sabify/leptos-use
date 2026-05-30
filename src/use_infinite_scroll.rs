@@ -1,17 +1,14 @@
-use crate::core::{Direction, Directions, IntoElementMaybeSignal};
 use crate::{
     ScrollOffset, UseEventListenerOptions, UseScrollOptions, UseScrollReturn,
+    core::{Direction, Directions, IntoElementMaybeSignal},
     use_element_visibility, use_scroll_with_options,
 };
 use default_struct_builder::DefaultBuilder;
 use futures_util::join;
 use gloo_timers::future::sleep;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 use send_wrapper::SendWrapper;
-use std::future::Future;
-use std::sync::Arc;
-use std::time::Duration;
+use std::{future::Future, sync::Arc, time::Duration};
 use wasm_bindgen::JsCast;
 
 /// Infinite scrolling of the element.

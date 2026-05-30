@@ -1,7 +1,9 @@
 #![cfg(target_arch = "wasm32")]
 
-use std::sync::Arc;
-use std::sync::atomic::{AtomicUsize, Ordering};
+use std::sync::{
+    Arc,
+    atomic::{AtomicUsize, Ordering},
+};
 
 use gloo_timers::future::TimeoutFuture;
 use leptos::prelude::*;

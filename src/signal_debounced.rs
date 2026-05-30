@@ -1,7 +1,8 @@
-use crate::utils::{signal_filtered, signal_filtered_local};
-use crate::{DebounceOptions, use_debounce_fn_with_options};
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use crate::{
+    DebounceOptions, use_debounce_fn_with_options,
+    utils::{signal_filtered, signal_filtered_local},
+};
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 
 signal_filtered!(
     /// Debounce changing of a `Signal` value.

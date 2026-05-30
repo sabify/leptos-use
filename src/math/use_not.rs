@@ -1,5 +1,4 @@
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 
 /// Reactive `NOT` condition.
 ///

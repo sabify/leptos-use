@@ -1,11 +1,10 @@
-use crate::core::OptionLocalRwSignal;
 use crate::{
-    UseEventListenerOptions, core::OptionLocalSignal, js, sendwrap_fn, use_event_listener,
-    use_event_listener_with_options, use_supported,
+    UseEventListenerOptions,
+    core::{OptionLocalRwSignal, OptionLocalSignal},
+    js, sendwrap_fn, use_event_listener, use_event_listener_with_options, use_supported,
 };
 use codee::{CodecError, Decoder, Encoder};
-use leptos::ev::messageerror;
-use leptos::prelude::*;
+use leptos::{ev::messageerror, prelude::*};
 use thiserror::Error;
 use wasm_bindgen::JsValue;
 

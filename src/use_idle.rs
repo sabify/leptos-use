@@ -1,9 +1,10 @@
-use crate::core::now;
-use crate::filter_builder_methods;
-use crate::utils::{DebounceOptions, FilterOptions, ThrottleOptions};
+use crate::{
+    core::now,
+    filter_builder_methods,
+    utils::{DebounceOptions, FilterOptions, ThrottleOptions},
+};
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 
 /// Tracks whether the user is being inactive.
 ///
@@ -102,16 +103,15 @@ pub fn use_idle_with_options(
 
     #[cfg(not(feature = "ssr"))]
     {
-        use crate::utils::create_filter_wrapper;
         use crate::{
             UseEventListenerOptions, sendwrap_fn, use_document, use_event_listener,
-            use_event_listener_with_options,
+            use_event_listener_with_options, utils::create_filter_wrapper,
         };
-        use leptos::ev::{Custom, visibilitychange};
-        use leptos::leptos_dom::helpers::TimeoutHandle;
-        use std::cell::Cell;
-        use std::rc::Rc;
-        use std::time::Duration;
+        use leptos::{
+            ev::{Custom, visibilitychange},
+            leptos_dom::helpers::TimeoutHandle,
+        };
+        use std::{cell::Cell, rc::Rc, time::Duration};
 
         let timer = Rc::new(Cell::new(None::<TimeoutHandle>));
 
@@ -121,11 +121,7 @@ pub fn use_idle_with_options(
             sendwrap_fn!(move || {
                 set_idle.set(false);
                 if let Some(timer) = timer.replace(
-                    set_timeout_with_handle(
-                        move || set_idle.set(true),
-                        Duration::from_millis(timeout),
-                    )
-                    .ok(),
+                    set_timeout(move || set_idle.set(true), Duration::from_millis(timeout)).ok(),
                 ) {
                     timer.clear();
                 }

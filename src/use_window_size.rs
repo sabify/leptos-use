@@ -1,10 +1,9 @@
-use crate::core::Size;
 use crate::{
-    UseEventListenerOptions, use_event_listener_with_options, use_media_query, use_window,
+    UseEventListenerOptions, core::Size, use_event_listener_with_options, use_media_query,
+    use_window,
 };
 use default_struct_builder::DefaultBuilder;
-use leptos::ev::resize;
-use leptos::prelude::*;
+use leptos::{ev::resize, prelude::*};
 
 /// Reactive window size.
 ///

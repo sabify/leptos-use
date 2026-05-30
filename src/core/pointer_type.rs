@@ -1,5 +1,4 @@
-use std::fmt::Display;
-use std::str::FromStr;
+use std::{fmt::Display, str::FromStr};
 
 #[derive(Debug, PartialEq, Eq, Clone, Copy, Hash)]
 pub enum PointerType {

@@ -1,7 +1,5 @@
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
-use std::cmp::Ordering;
-use std::ops::DerefMut;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
+use std::{cmp::Ordering, ops::DerefMut};
 
 /// Reactive sort of iterable
 ///

@@ -1,20 +1,20 @@
-use crate::core::{IntoElementMaybeSignal, MaybeRwSignal};
-use crate::core::{StrMarker, url};
-use crate::storage::{StorageType, UseStorageOptions, use_storage_with_options};
-use crate::utils::get_header;
 use crate::{
-    SyncSignalOptions, UseCookieOptions, UsePreferredDarkOptions, sync_signal_with_options,
-    use_cookie_with_options, use_preferred_dark_with_options,
+    SyncSignalOptions, UseCookieOptions, UsePreferredDarkOptions,
+    core::{IntoElementMaybeSignal, MaybeRwSignal, StrMarker, url},
+    storage::{StorageType, UseStorageOptions, use_storage_with_options},
+    sync_signal_with_options, use_cookie_with_options, use_preferred_dark_with_options,
+    utils::get_header,
 };
 use cfg_if::cfg_if;
 use codee::string::FromToStringCodec;
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
-use std::fmt::{Display, Formatter};
-use std::marker::PhantomData;
-use std::str::FromStr;
-use std::sync::Arc;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
+use std::{
+    fmt::{Display, Formatter},
+    marker::PhantomData,
+    str::FromStr,
+    sync::Arc,
+};
 
 cfg_if! { if #[cfg(not(feature = "ssr"))] {
     use crate::core::ElementMaybeSignal;

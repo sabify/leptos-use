@@ -2,8 +2,7 @@
 
 use crate::core::MaybeRwSignal;
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 use wasm_bindgen::JsCast;
 
 /// Reactive favicon.

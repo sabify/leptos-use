@@ -3,11 +3,12 @@
 use crate::core::now;
 use cfg_if::cfg_if;
 use default_struct_builder::DefaultBuilder;
-use leptos::leptos_dom::helpers::TimeoutHandle;
-use leptos::prelude::*;
-use std::cmp::max;
-use std::sync::{Arc, Mutex, atomic::AtomicBool};
-use std::time::Duration;
+use leptos::{leptos_dom::helpers::TimeoutHandle, prelude::*};
+use std::{
+    cmp::max,
+    sync::{Arc, Mutex, atomic::AtomicBool},
+    time::Duration,
+};
 
 #[derive(Copy, Clone, DefaultBuilder)]
 pub struct ThrottleOptions {
@@ -88,7 +89,7 @@ where
                 let last_exec = Arc::clone(&last_exec);
                 let is_leading = Arc::clone(&is_leading);
                 *timer.lock().unwrap() =
-                    set_timeout_with_handle(
+                    set_timeout(
                         move || {
                             *last_exec.lock().unwrap() = now();
                             is_leading.store(true, std::sync::atomic::Ordering::Relaxed);
@@ -106,7 +107,7 @@ where
 
             if !options.leading && timer.is_none() {
                 let is_leading = Arc::clone(&is_leading);
-                *timer = set_timeout_with_handle(
+                *timer = set_timeout(
                         move || {
                             is_leading.store(true, std::sync::atomic::Ordering::Relaxed);
                         },

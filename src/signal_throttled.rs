@@ -1,7 +1,8 @@
-use crate::utils::{signal_filtered, signal_filtered_local};
-use crate::{ThrottleOptions, use_throttle_fn_with_options};
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use crate::{
+    ThrottleOptions, use_throttle_fn_with_options,
+    utils::{signal_filtered, signal_filtered_local},
+};
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 
 signal_filtered!(
     /// Throttle changing of a `Signal` value.

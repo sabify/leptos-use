@@ -1,11 +1,12 @@
 #![allow(clippy::too_many_arguments)]
 
-use crate::core::now;
-use crate::utils::get_header;
+use crate::{core::now, utils::get_header};
 use codee::{CodecError, Decoder, Encoder};
 pub use cookie::SameSite;
-use cookie::time::{Duration, OffsetDateTime};
-use cookie::{Cookie, CookieJar};
+use cookie::{
+    Cookie, CookieJar,
+    time::{Duration, OffsetDateTime},
+};
 use default_struct_builder::DefaultBuilder;
 use leptos::{
     logging::{debug_warn, error},
@@ -613,7 +614,7 @@ where
                     let elapsed = Arc::clone(&elapsed);
                     let create_expiration_timeout = Arc::clone(&create_expiration_timeout);
 
-                    *timeout.lock().unwrap() = set_timeout_with_handle(
+                    *timeout.lock().unwrap() = set_timeout(
                         move || {
                             let elapsed = elapsed.fetch_add(
                                 timeout_length as i32,

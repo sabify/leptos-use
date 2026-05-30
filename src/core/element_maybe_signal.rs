@@ -1,5 +1,7 @@
-use leptos::prelude::{guards::ReadGuard, *};
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{
+    prelude::{guards::ReadGuard, *},
+    reactive::wrappers::read::Signal,
+};
 use send_wrapper::SendWrapper;
 use std::{ops::Deref, rc::Rc, time::Duration};
 

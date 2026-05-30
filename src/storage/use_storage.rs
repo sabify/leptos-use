@@ -1,8 +1,7 @@
 use crate::{core::MaybeRwSignal, storage::StorageType, utils::FilterOptions};
 use codee::{CodecError, Decoder, Encoder};
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 use std::sync::Arc;
 use thiserror::Error;
 use wasm_bindgen::JsValue;

@@ -2,11 +2,8 @@
 
 use crate::use_event_listener;
 use cfg_if::cfg_if;
-use leptos::ev::change;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
-use std::cell::RefCell;
-use std::rc::Rc;
+use leptos::{ev::change, prelude::*, reactive::wrappers::read::Signal};
+use std::{cell::RefCell, rc::Rc};
 
 /// Reactive [Media Query](https://developer.mozilla.org/en-US/docs/Web/CSS/Media_Queries/Testing_media_queries).
 ///

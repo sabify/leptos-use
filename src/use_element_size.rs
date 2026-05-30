@@ -1,9 +1,7 @@
-use crate::core::IntoElementMaybeSignal;
-use crate::core::Size;
+use crate::core::{IntoElementMaybeSignal, Size};
 use cfg_if::cfg_if;
 use default_struct_builder::DefaultBuilder;
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 
 cfg_if! { if #[cfg(not(feature = "ssr"))] {
     use crate::{use_resize_observer_with_options, UseResizeObserverOptions};

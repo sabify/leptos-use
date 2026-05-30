@@ -1,7 +1,6 @@
 use super::{StorageType, UseStorageOptions, use_storage_with_options};
 use codee::{Decoder, Encoder};
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 
 #[allow(rustdoc::bare_urls)]
 /// Reactive [LocalStorage](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage).

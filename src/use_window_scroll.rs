@@ -2,8 +2,7 @@
 
 use crate::{UseEventListenerOptions, use_event_listener_with_options, use_window};
 use cfg_if::cfg_if;
-use leptos::ev::scroll;
-use leptos::prelude::*;
+use leptos::{ev::scroll, prelude::*};
 
 /// Reactive window scroll.
 ///

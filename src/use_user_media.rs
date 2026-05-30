@@ -163,8 +163,7 @@ async fn create_media(
     video: Option<VideoConstraints>,
     audio: Option<AudioConstraints>,
 ) -> Result<web_sys::MediaStream, JsValue> {
-    use crate::use_window::use_window;
-    use crate::{js, js_fut};
+    use crate::{js, js_fut, use_window::use_window};
     use js_sys::Array;
 
     let media = use_window()

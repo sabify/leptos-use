@@ -1,12 +1,16 @@
 #![cfg_attr(feature = "ssr", allow(unused_variables, unused_imports))]
 
-use crate::core::{IntoElementMaybeSignal, Position};
-use crate::{UseEventListenerOptions, UseWindow, use_event_listener_with_options, use_window};
+use crate::{
+    UseEventListenerOptions, UseWindow,
+    core::{IntoElementMaybeSignal, Position},
+    use_event_listener_with_options, use_window,
+};
 use default_struct_builder::DefaultBuilder;
-use leptos::ev::{dragover, mousemove, touchend, touchmove, touchstart};
-use leptos::prelude::*;
-use std::convert::Infallible;
-use std::marker::PhantomData;
+use leptos::{
+    ev::{dragover, mousemove, touchend, touchmove, touchstart},
+    prelude::*,
+};
+use std::{convert::Infallible, marker::PhantomData};
 use wasm_bindgen::{JsCast, JsValue};
 
 /// Reactive mouse position

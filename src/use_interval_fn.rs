@@ -1,14 +1,13 @@
 #![cfg_attr(feature = "ssr", allow(unused_variables, unused_imports))]
 
-use crate::sendwrap_fn;
-use crate::utils::Pausable;
+use crate::{sendwrap_fn, utils::Pausable};
 use default_struct_builder::DefaultBuilder;
-use leptos::leptos_dom::helpers::IntervalHandle;
-use leptos::prelude::*;
+use leptos::{
+    leptos_dom::helpers::{IntervalHandle, set_interval},
+    prelude::*,
+};
 use send_wrapper::SendWrapper;
-use std::cell::Cell;
-use std::sync::Arc;
-use std::time::Duration;
+use std::{cell::Cell, sync::Arc, time::Duration};
 
 /// Wrapper for `set_interval` with controls.
 ///
@@ -137,11 +136,7 @@ where
                 clean();
 
                 timer.set(
-                    set_interval_with_handle(
-                        callback.clone(),
-                        Duration::from_millis(interval_value),
-                    )
-                    .ok(),
+                    set_interval(callback.clone(), Duration::from_millis(interval_value)).ok(),
                 );
             }
         });

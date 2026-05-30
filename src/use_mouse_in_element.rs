@@ -1,12 +1,12 @@
-use crate::core::{IntoElementMaybeSignal, Position};
 use crate::{
     UseMouseCoordType, UseMouseEventExtractor, UseMouseOptions, UseMouseReturn, UseMouseSourceType,
-    UseWindow, use_mouse_with_options, use_window,
+    UseWindow,
+    core::{IntoElementMaybeSignal, Position},
+    use_mouse_with_options, use_window,
 };
 use default_struct_builder::DefaultBuilder;
 use leptos::prelude::*;
-use std::convert::Infallible;
-use std::marker::PhantomData;
+use std::{convert::Infallible, marker::PhantomData};
 
 /// Reactive mouse position related to an element.
 ///

@@ -1,5 +1,4 @@
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
+use leptos::{prelude::*, reactive::wrappers::read::Signal};
 use std::fmt::Display;
 
 /// Reactive [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API).
@@ -33,8 +32,7 @@ pub fn use_permission(permission_name: &str) -> Signal<PermissionState> {
     #[cfg(not(feature = "ssr"))]
     {
         use crate::use_event_listener;
-        use std::cell::RefCell;
-        use std::rc::Rc;
+        use std::{cell::RefCell, rc::Rc};
 
         let permission_status = Rc::new(RefCell::new(None::<web_sys::PermissionStatus>));
 

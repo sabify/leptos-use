@@ -1,11 +1,15 @@
-use crate::core::{IntoElementMaybeSignal, MaybeRwSignal, PointerType, Position};
-use crate::{UseEventListenerOptions, UseWindow, use_event_listener_with_options, use_window};
+use crate::{
+    UseEventListenerOptions, UseWindow,
+    core::{IntoElementMaybeSignal, MaybeRwSignal, PointerType, Position},
+    use_event_listener_with_options, use_window,
+};
 use default_struct_builder::DefaultBuilder;
-use leptos::ev::{pointerdown, pointermove, pointerup};
-use leptos::prelude::*;
-use leptos::reactive::wrappers::read::Signal;
-use std::marker::PhantomData;
-use std::sync::Arc;
+use leptos::{
+    ev::{pointerdown, pointermove, pointerup},
+    prelude::*,
+    reactive::wrappers::read::Signal,
+};
+use std::{marker::PhantomData, sync::Arc};
 use wasm_bindgen::JsCast;
 use web_sys::PointerEvent;
 

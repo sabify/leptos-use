@@ -2,8 +2,10 @@
 
 use crate::use_event_listener;
 use cfg_if::cfg_if;
-use leptos::ev::{blur, focus};
-use leptos::prelude::*;
+use leptos::{
+    ev::{blur, focus},
+    prelude::*,
+};
 
 /// Reactively track window focus
 /// with `window.onfocus` and `window.onblur` events.
