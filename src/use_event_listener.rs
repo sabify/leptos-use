@@ -2,6 +2,7 @@ use crate::core::IntoElementMaybeSignal;
 use cfg_if::cfg_if;
 use default_struct_builder::DefaultBuilder;
 use leptos::ev::EventDescriptor;
+use wasm_bindgen::convert::FromWasmAbi;
 
 cfg_if! { if #[cfg(not(feature = "ssr"))] {
     use crate::{watch_with_options, WatchOptions, sendwrap_fn};
@@ -104,6 +105,7 @@ where
     Ev: EventDescriptor + 'static,
     El: IntoElementMaybeSignal<web_sys::EventTarget, M>,
     F: FnMut(<Ev as EventDescriptor>::EventType) + 'static,
+    <Ev as EventDescriptor>::EventType: FromWasmAbi,
 {
     use_event_listener_with_options(target, event, handler, UseEventListenerOptions::default())
 }
@@ -121,6 +123,7 @@ where
     Ev: EventDescriptor + 'static,
     El: IntoElementMaybeSignal<web_sys::EventTarget, M>,
     F: FnMut(<Ev as EventDescriptor>::EventType) + 'static,
+    <Ev as EventDescriptor>::EventType: FromWasmAbi,
 {
     #[cfg(feature = "ssr")]
     {
