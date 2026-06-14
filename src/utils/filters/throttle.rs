@@ -42,9 +42,8 @@ where
     let t = Arc::clone(&timer);
     let clear = move || {
         let mut t = t.lock().unwrap();
-        if let Some(handle) = *t {
+        if let Some(handle) = t.take() {
             handle.clear();
-            *t = None;
         }
     };
 

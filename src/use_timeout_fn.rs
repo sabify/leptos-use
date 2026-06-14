@@ -76,8 +76,7 @@ where
             let timer = Arc::clone(&timer);
 
             move || {
-                let timer = timer.lock().unwrap();
-                if let Some(timer) = *timer {
+                if let Some(timer) = timer.lock().unwrap().take() {
                     timer.clear();
                 }
             }

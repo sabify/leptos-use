@@ -29,9 +29,8 @@ where
 
     let clear_timeout = move |timer: &Arc<Mutex<Option<TimeoutHandle>>>| {
         let mut timer = timer.lock().unwrap();
-        if let Some(handle) = *timer {
+        if let Some(handle) = timer.take() {
             handle.clear();
-            *timer = None;
         }
     };
 

@@ -448,7 +448,7 @@ where
                     && ws
                         .get_value()
                         .is_some_and(|ws: WebSocket| ws.ready_state() != WebSocket::OPEN)
-                    && reconnect_timer_ref.get_value().is_none()
+                    && reconnect_timer_ref.with_value(|timer| timer.is_none())
                 {
                     reconnect_timer_ref.set_value(
                         set_timeout(
@@ -474,10 +474,11 @@ where
             let on_error = Arc::clone(&on_error);
 
             Some(Arc::new(move || {
-                if let Some(reconnect_timer) = reconnect_timer_ref.get_value() {
-                    reconnect_timer.clear();
-                    reconnect_timer_ref.set_value(None);
-                }
+                reconnect_timer_ref.update_value(|timer| {
+                    if let Some(reconnect_timer) = timer.take() {
+                        reconnect_timer.clear();
+                    }
+                });
 
                 if let Some(web_socket) = ws.get_value() {
                     let _ = web_socket.close();
